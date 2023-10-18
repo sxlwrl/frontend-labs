@@ -1,0 +1,14 @@
+{
+  "name": "frontend_lab",
+  "version": "1.0.0",
+  "description": "",
+  "devDependencies": {
+    "parcel": "^2.9.3"
+  },
+  "scripts": {
+    "start": "parcel lab1.html",
+    "build": "parcel build lab1.html"
+  },
+  "author": "",
+  "license": "ISC"
+}
