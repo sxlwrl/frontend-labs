@@ -2,7 +2,7 @@
 
 const btn = document.querySelector('button');
 
-const data = {
+const printFields = {
     '.name': {
         label: 'ПІБ: ',
         target: '.name-print',
@@ -11,7 +11,7 @@ const data = {
     '.group': {
         label: 'Група: ',
         target: '.group-print',
-        regex: /^[а-щА-ЩЬьЮюЯяЇїІіЄєҐґ']{2}$+([-\s]\d{2})$/,
+        regex: /^[а-щА-ЩЬьЮюЯяЇїІіЄєҐґ']+([-\s]\d{2})$/,
     },
     '.phone': {
         label: 'Телефон: ',
@@ -44,7 +44,7 @@ const validateForm = function (field, regex) {
 };
 
 const printElement = function (field, value) {
-    document.querySelector(data[field].target).innerHTML = `${data[field].label}${value}`;
+    document.querySelector(printFields[field].target).innerHTML = `${printFields[field].label}${value}`;
 };
 
 function submitForm(e) {
@@ -52,10 +52,8 @@ function submitForm(e) {
 
     let hasErrors = false;
 
-    for (const field of Object.keys(data)) {
-        const isValid = validateForm(field, data[field].regex);
-
-        hasErrors = hasErrors || !isValid;
+    for (const field of Object.keys(printFields)) {
+        const isValid = validateForm(field, printFields[field].regex);
 
         if (!isValid) {
             hasErrors = true;
@@ -63,7 +61,7 @@ function submitForm(e) {
     }
 
     if (!hasErrors) {
-        for (const field of Object.keys(data)) {
+        for (const field of Object.keys(printFields)) {
             const [_, value] = getElement(field);
             printElement(field, value);
         }
@@ -71,4 +69,3 @@ function submitForm(e) {
 }
 
 btn.addEventListener('click', submitForm);
-
