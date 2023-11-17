@@ -1,83 +1,80 @@
 'use strict';
 
-document.addEventListener('DOMContentLoaded', () => {
-    const firstElement = document.getElementById('first');
-    const secondElement = document.querySelector('#second');
+const firstElement = document.getElementById('first');
+const secondElement = document.querySelector('#second');
 
-    const getRandomColor = () => {
-        const letters = '0123456789ABCDEF';
-        let color = '#';
-        for (let i = 0; i < 6; i++) {
-            color += letters[Math.floor(Math.random() * 16)];
-        }
-        return color;
-    };
+const getRandomColor = () => {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+};
 
-    const changeColor = element => {
-        element.style.backgroundColor = getRandomColor();
-        element.style.color = getRandomColor();
-    };
+const changeColor = element => {
+    element.style.backgroundColor = getRandomColor();
+    element.style.color = getRandomColor();
+};
 
-    const addClickListener = (element) => {
-        element.addEventListener("click", function () {
-            changeColor(element);
-        });
-    };
+const addClickListener = (element) => {
+    element.addEventListener("click", function () {
+        changeColor(element);
+    });
+};
 
-    addClickListener(firstElement);
-    addClickListener(secondElement);
-});
+addClickListener(firstElement);
+addClickListener(secondElement);
+
+
+
+const imgLink = document.querySelector('.img-link');
+const btns = document.querySelector('.buttons');
+const btnAdd = document.querySelector('.add');
+const btnZoomIn = document.querySelector('.zoom-in');
+const btnZoomOut = document.querySelector('.zoom-out');
+const btnDelete = document.querySelector('.delete');
+
+const img = document.querySelector('.img');
 
 const storage = {img: null};
 
-document.addEventListener('DOMContentLoaded', function () {
-    const imgLink = document.querySelector('.img-link');
-    const btns = document.querySelector('.buttons');
-    const btnAdd = document.querySelector('.add');
-    const btnZoomIn = document.querySelector('.zoom-in');
-    const btnZoomOut = document.querySelector('.zoom-out');
-    const btnDelete = document.querySelector('.delete');
+storage.img = img;
 
-    const img = document.querySelector('.img');
+const updateButtonState = (disabledButton, enabledButton) => {
+    disabledButton.setAttribute('disabled', '');
+    enabledButton.removeAttribute('disabled');
+};
 
-    storage.img = img;
+btnAdd.addEventListener('click', () => {
+    const newImg = storage.img;
 
-    const updateButtonState = (disabledButton, enabledButton) => {
-        disabledButton.setAttribute('disabled', '');
-        enabledButton.removeAttribute('disabled');
-    };
+    updateButtonState(btnAdd, btnDelete);
 
-    btnAdd.addEventListener('click', () => {
-        const newImg = storage.img;
+    imgLink.append(newImg);
+});
 
-        updateButtonState(btnAdd, btnDelete);
+btnZoomIn.addEventListener('click', () => {
+    img.style.transform = "scale(1.2)";
 
-        imgLink.append(newImg);
-    });
+    btns.style.transform = `translateY(${80}px)`;
+    btns.style.transition = `transform 0.3s ease`;
+    updateButtonState(btnZoomIn, btnZoomOut);
+});
 
-    btnZoomIn.addEventListener('click', () => {
-        img.style.transform = "scale(1.2)";
+btnZoomOut.addEventListener('click', () => {
+    img.style.transform = "scale(1)";
 
-        btns.style.transform = `translateY(${80}px)`;
-        btns.style.transition = `transform 0.3s ease`;
+    btns.style.transform = `translateY(${0}px)`;
 
-        updateButtonState(btnZoomIn, btnZoomOut);
-    });
+    updateButtonState(btnZoomOut, btnZoomIn);
+});
 
-    btnZoomOut.addEventListener('click', () => {
-        img.style.transform = "scale(1)";
-
-        btns.style.transform = `translateY(${0}px)`;
-
-        updateButtonState(btnZoomOut, btnZoomIn);
-    });
-
-    btnDelete.addEventListener('click', () => {
-        updateButtonState(btnDelete, btnAdd);
-        if (img) {
-            img.parentNode.removeChild(img);
-        }
-    });
+btnDelete.addEventListener('click', () => {
+    updateButtonState(btnDelete, btnAdd);
+    if (img) {
+        img.parentNode.removeChild(img);
+    }
 });
 
 
