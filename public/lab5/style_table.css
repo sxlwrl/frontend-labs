@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 20rem;
+    height: 20rem;
+    margin-top: 20px;
+}
+
+th, td {
+    text-align: center;
+}
+
+.palette {
+    width: 20rem;
+    height: 2rem;
+}
+
