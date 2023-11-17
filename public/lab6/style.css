@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Didact+Gothic|Comfortaa:400,700&subset=latin,cyrillic');
+
+* {
+    font-family: Comfortaa, serif;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+button {
+    width: 10rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    border: 0.1rem solid black ;
+}
+
+.result-message {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.download {
+    margin-right: 5rem;
+}
+
+button:hover {
+    background: #e0cdf5;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+
+.person-info {
+    width: 22%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.img {
+    display: block;
+    margin: auto;
+}
