@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Didact+Gothic|Comfortaa:400,700&subset=latin,cyrillic');
+
+* {
+    font-family: 'Comfortaa', cursive;
+}
+
+.container {
+    display: flex;
+    min-width: 80%;
+    align-items: center;
+    justify-content: center;
+}
+
+.form--info {
+    border-color: green;
+    text-align: center;
+    margin-right: 15rem;
+    margin-top: 2rem;
+    outline: none;
+}
+
+.form-data {
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+}
+
+input {
+    height: 5vh;
+    margin-top: 2.5vh;
+    padding-left: 1rem;
+    border: 0.5px solid;
+    border-radius: 5px;
+    -webkit-appearance: none;
+    font-size: 14px;
+}
+
+.show_data, p {
+    width: 20rem;
+    margin-top: 2rem;
+}
+
+.submit {
+    margin-top: 2vh;
+    height: 5vh;
+    border-radius: 5px;
+}
+
+.submit:hover {
+    background: #e0cdf5;
+}
+
+.error {
+    border: 1px solid #ff0000;
+}
