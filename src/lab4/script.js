@@ -66,6 +66,7 @@ btnZoomOut.addEventListener('click', () => {
     img.style.transform = "scale(1)";
 
     btns.style.transform = `translateY(${0}px)`;
+    btns.style.transition = `transform 0.3s ease`;
 
     updateButtonState(btnZoomOut, btnZoomIn);
 });
