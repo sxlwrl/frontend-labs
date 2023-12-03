@@ -3,12 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "devDependencies": {
-    "parcel": "^2.9.3"
+    "parcel": "^2.10.3"
   },
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "parcel-bundler": "^1.12.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
 }
