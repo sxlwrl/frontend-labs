@@ -17,6 +17,10 @@ button {
     border: 0.1rem solid black ;
 }
 
+button:hover {
+    background: #e0cdf5;
+}
+
 .result-message {
     text-align: center;
     margin-top: 2rem;
@@ -24,10 +28,6 @@ button {
 
 .download {
     margin-right: 5rem;
-}
-
-button:hover {
-    background: #e0cdf5;
 }
 
 .container {
